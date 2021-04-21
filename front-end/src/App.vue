@@ -1,13 +1,12 @@
 <template>
 <div id="app">
-  <div class="header">
-    <div class="brand">
-      <h1>Pagliaccio</h1>
-      <h2>Ticket System</h2>
-    </div>
-  </div>
   <div class="content">
     <router-view />
+    <div id='footer'>
+    <div class='footer-item'>
+    <a href="https://github.com/BYU-CS-260-Winter-2021/lab-3b-grocery-store-choir1997/tree/main">GitHub Repository</a>
+    </div>
+  </div>
   </div>
 </div>
 </template>
@@ -18,6 +17,7 @@
 body {
   margin: 0px;
   background: #F7F5F7;
+  background-color: #f0ffff;
 }
 
 #app {
@@ -30,7 +30,7 @@ body {
 .brand {
   display: flex;
   background: #96ceb4;
-  padding: 10px 100px;
+  padding: 5px 10px;
 }
 
 .brand h1 {
@@ -67,13 +67,30 @@ h2 {
   margin-right: 10px;
 }
 
-a {
-  color: #ffad60;
+
+#footer {
+  display: flex;
+  position: relative;
+  min-height: 70vh;
+  justify-content: flex-start;
+  padding: 0px !important;
+  margin: -50px -50px !important;
 }
 
-.pure-button-primary {
-  background-color: #ffad60;
-  color: #333;
-  border-radius: 30px;
+.footer-item {
+  position: absolute;
+  bottom: 0;
+  background-color: #8FBC8F;
+  color: #FFFFF;
+  background-size: cover;
+  height: 20px;
+  width: 3000px;
+  padding: 20px;
+  margin-left: 50px;
+  flex: 1;
+}
+
+.footer-two {
+  text-align: center;
 }
 </style>
