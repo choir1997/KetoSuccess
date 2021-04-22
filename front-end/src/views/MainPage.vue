@@ -95,8 +95,6 @@ h2 {
   text-align: center;
 }
 
-
-
 .button {
   display: inline-block;
   border-radius: 2px;
@@ -158,4 +156,5 @@ h2 {
 .signup-login a:hover {
   color: #8B0000;
 }
+
 </style>

@@ -237,4 +237,12 @@ input {
   text-align: center;
   font-size: 20px;
 }
+
+@media only screen and (min-width: 300px) and (max-width: 960px) {
+  .formBox {
+    width: 20%;
+    flex-wrap: wrap;
+  }
+
+}
 </style>

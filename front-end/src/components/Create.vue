@@ -32,6 +32,7 @@
             <input placeholder="edit time" mealTime = "ticket.mealTime" v-model="ticket.editMealTime">
             <br/>
             <textarea placeholder="edit nutrition..." nutrition = "ticket.nutrition" v-model="ticket.editNutrition"></textarea>
+            <br/>
             <button @click="editTicket(ticket)" type="submit">Save</button>
           </form>
           </div>
@@ -182,8 +183,12 @@ computed: {
   margin: 5px;
 }
 
+.editing {
+  display: flex;
+}
+
 textarea {
-  width: 100%;
+  width: 200px;
   max-width: 500px;
 }
 
@@ -239,6 +244,32 @@ button:hover span:after {
 
 button:hover {
   background-color: #568f56;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 960px) {
+  .loginPage {
+    width: 360px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .meal {
+    display: flex;
+    width: 360px;
+    flex-wrap: wrap !important;
+  }
+
+  .pure-form {
+    text-align: center;
+  }
+
+  .pure-form input {
+    height: 30px;
+    margin: 5px;
+    width: 200px;
+    margin-left: 60px;
+  }
+
 }
 
 </style>

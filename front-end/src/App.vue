@@ -4,7 +4,7 @@
     <router-view />
     <div id='footer'>
     <div class='footer-item'>
-    <a href="https://github.com/BYU-CS-260-Winter-2021/lab-3b-grocery-store-choir1997/tree/main">GitHub Repository</a>
+    <a href="https://github.com/choir1997/KetoSuccess">GitHub Repository and spent 25 hours on project</a>
     </div>
   </div>
   </div>
@@ -84,13 +84,17 @@ h2 {
   color: #FFFFF;
   background-size: cover;
   height: 20px;
-  width: 3000px;
-  padding: 20px;
+  width: 1700px;
+  padding: 10px;
   margin-left: 50px;
   flex: 1;
 }
 
 .footer-two {
   text-align: center;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 960px) {
+
 }
 </style>
