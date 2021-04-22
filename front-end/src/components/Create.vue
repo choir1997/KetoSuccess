@@ -104,8 +104,6 @@ export default {
        this.doneEditing = true;
        this.editing = false;
        return true;
-     } catch (error) {
-       console.log(error);
      }
    },
    async addTicket() {
@@ -123,8 +121,6 @@ export default {
        this.editing = false;
        this.getTickets();
        return true;
-     } catch (error) {
-       console.log(error);
      }
    },
   async getTickets() {
@@ -132,8 +128,6 @@ export default {
       let response = await axios.get("/api/tickets");
       this.tickets = response.data.tickets;
       return true;
-    } catch (error) {
-      console.log(error);
     }
   },
   async deleteTicket(ticket) {
@@ -142,8 +136,6 @@ export default {
       console.log(ticket);
       await axios.delete("/api/tickets/" + ticket._id);
       return true;
-    } catch (error) {
-      console.log(error);
     }
   },
   setCreating() {
