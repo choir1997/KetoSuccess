@@ -85,7 +85,6 @@ export default {
      }
    },
    async editTicket(ticket) {
-     try {
       if (ticket.editMealName == null) {
         ticket.editMealName = ticket.mealName;
       }
@@ -104,13 +103,8 @@ export default {
        this.doneEditing = true;
        this.editing = false;
        return true;
-     } catch (error) {
-      // eslint-disable-next-line no-console
-       console.log(error);
-     }
    },
    async addTicket() {
-     try {
        await axios.post("/api/tickets", {
          creating: false,
          mealName: this.mealName,
@@ -124,31 +118,17 @@ export default {
        this.editing = false;
        this.getTickets();
        return true;
-     } catch (error) {
-      // eslint-disable-next-line no-console
-       console.log(error);
-     }
    },
   async getTickets() {
-    try {
       let response = await axios.get("/api/tickets");
       this.tickets = response.data.tickets;
       return true;
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-    }
   },
   async deleteTicket(ticket) {
-    try {
       this.getTickets();
       console.log(ticket);
       await axios.delete("/api/tickets/" + ticket._id);
       return true;
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-    }
   },
   setCreating() {
     this.creating = true;
