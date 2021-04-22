@@ -126,7 +126,6 @@ export default {
   },
   async deleteTicket(ticket) {
       this.getTickets();
-      console.log(ticket);
       await axios.delete("/api/tickets/" + ticket._id);
       return true;
   },
