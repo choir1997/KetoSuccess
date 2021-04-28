@@ -4,13 +4,17 @@
 
 <div class="main" v-else>
   <div class='header'>
-    <h1>Welcome To Keto Success!</h1>
+    <h1>Welcome To Meal Planner!</h1>
   </div>
-<h2>Let's plan your perfect keto meal...</h2>
+  <h2>Let's plan your perfect meal...</h2>
 
   <div class='buttons'>
     <router-link to="/SignupLogin">
-    <button class="button" style="vertical-align:middle"><span>Create Your Meal Plan! <i class="fas fa-edit"></i></span></button>
+    <div class="container-2">
+    <div class="btn btn-two">
+      <span>Start!</span>
+    </div>
+    </div>
     </router-link>
   </div>
 </div>
@@ -77,17 +81,17 @@ export default {
 
 </script>
 <style scoped>
+
 h1 {
   text-align: center;
-  font-size: 50px;
-  border: 2px solid;
+  font-size: 75px;
   padding: 20px;
 }
 
 .header {
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 120px;
 }
 
 h2 {
@@ -95,53 +99,82 @@ h2 {
   text-align: center;
 }
 
-.button {
-  display: inline-block;
-  border-radius: 2px;
-  background-color: #8FBC8F;
-  color: #000000;
+div[class*=container] {
   text-align: center;
-  font-size: 20px;
-  padding: 15px;
-  width: 200px;
-  height: 100px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 20px;
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.2s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.2s;
-}
-
-.button:hover span {
-  padding-right: 15px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-.button:hover {
-  background-color: #568f56;
-}
-
-.buttons {
+  width: 100%;
+  height: 33%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btn {
+  position: relative;
+  color: white;
+  width: 200px;
+  height: 64px;
+  line-height: 64px;
+  transition: all 0.3s;
+  text-decoration: none !important;
+  font-size: 25px;
+  span {
+    transition: all 0.3s;
+    tranform: scale(1, 1);
+  }
+}
+
+.btn::before, .btn::after {
+  content: '';
+  position: absolute;
+  transition: all 0.3s;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.btn-two::before, .btn-two::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+	height: 100%;
+  bottom: 0;
+	left: 0;
+	z-index: 1;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-two:hover::after {
+  animation-name: rotatecw;
+  animation-duration: 2s;
+}
+.btn-two:hover::before {
+  animation-name: rotateccw;
+  animation-duration: 3s;
+}
+.btn-two:hover::after, .btn-two:hover::before {
+  left: 66px;
+  width: 64px;
+
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotatecw {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes rotateccw {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg);}
+}
+
+.buttons a {
+  text-decoration: none;
 }
 
 .signup-login {

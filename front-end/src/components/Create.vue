@@ -3,11 +3,20 @@
   <h2>Welcome, {{user.firstName}}! </h2>
   <h1>Add your plan for today: {{time()}}</h1>
   <div class="createLogout">
-    <button @click="setCreating"><span>Create <i class="fas fa-plus-square"></i></span></button>
+    <div class="container-3">
+      <div class="btn btn-three" @click="setCreating">
+        <span>Create </span>
+      </div>
+    </div>
     <br />
-    <button @click="logout"><span>Logout <i class="fas fa-sign-out-alt"></i></span></button>
+    <div class="container-3">
+      <div class="btn btn-three" @click="logout">
+        <span>Logout </span>
+      </div>
+    </div>
   </div>
-  <form class="pure-form" v-if="creating" @submit.prevent="addTicket">
+
+  <form class="pure-form" v-if="creating">
     <fieldset>
       <p>Name of Meal:</p>
       <input v-model="mealName">
@@ -18,13 +27,26 @@
       <p>Nutrition Facts(Calories, Fat, Protein, Carbs):</p>
       <textarea v-model="nutrition"></textarea>
       <br />
-      <button @click="cancelCreating">Cancel</button>
-      <button type="submit">Add Plan!</button>
+      <div class="container-3">
+        <div class="btn btn-three" @click="cancelCreating">
+          <span>Cancel </span>
+        </div>
+      </div>
+      <div class="container-3">
+        <div class="btn btn-three" @click="addTicket">
+          <span>Add Plan! </span>
+        </div>
+      </div>
     </fieldset>
   </form>
+
   <div class="meal" v-else>
         <div v-for="ticket in tickets" v-bind:key="ticket.id">
-          <button @click="isEditing(ticket)">Edit</button>
+          <div class="container-3">
+            <div class="btn btn-three" @click="isEditing(ticket)">
+              <span>Edit </span>
+            </div>
+          </div>
           <div class="editing" v-if="matchTicket(ticket)" @submit.prevent="editTicket(ticket)">
           <form class="pure-form">
             <input placeholder="edit name" mealName = "ticket.mealName"  v-model="ticket.editMealName">
@@ -33,7 +55,11 @@
             <br/>
             <textarea placeholder="edit nutrition..." nutrition = "ticket.nutrition" v-model="ticket.editNutrition"></textarea>
             <br/>
-            <button @click="editTicket(ticket)" type="submit">Save</button>
+            <div class="container-3">
+              <div class="btn btn-three" @click="editTicket(ticket)" type="submit">
+                <span>Save </span>
+              </div>
+            </div>
           </form>
           </div>
           <div class="notEditing" v-else>
@@ -42,7 +68,11 @@
             <p>Meal Time: {{ticket.mealTime}}</p>
             <p>Nutrition Facts: {{ticket.nutrition}}</p>
           </div>
-          <button @click="deleteTicket(ticket)">Delete <i class="fas fa-trash-alt"></i></button>
+          <div class="container-3">
+            <div class="btn btn-three" @click="deleteTicket(ticket)">
+              <span>Delete </span>
+            </div>
+          </div>
         </div>
   </div>
 </div>
@@ -244,6 +274,63 @@ button:hover span:after {
 
 button:hover {
   background-color: #568f56;
+}
+
+div[class*=container] {
+  text-align: center;
+  width: 100%;
+  height: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn {
+  position: relative;
+  color: white;
+  width: 175px;
+  height: 34px;
+  transition: all 0.3s;
+  text-decoration: none !important;
+  font-size: 20px;
+  span {
+    transition: all 0.3s;
+    tranform: scale(1, 1);
+  }
+}
+
+.btn::before, .btn::after {
+  content: '';
+  position: absolute;
+  transition: all 0.3s;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.btn-three::before {
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1, 0.1);
+}
+
+.btn-three:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.btn-three::after {
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-three:hover::after {
+  transform: scale(1, .1);
+  opacity: 0;
 }
 
 @media only screen and (min-width: 300px) and (max-width: 960px) {

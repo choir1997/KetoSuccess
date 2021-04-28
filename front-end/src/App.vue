@@ -12,43 +12,25 @@
 </template>
 
 <style>
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
 /* green yellow red orange */
 /* 96ceb4 ffeead d9534f ffad60 */
 body {
   margin: 0px;
-  background: #F7F5F7;
-  background-color: #f0ffff;
+  background: #7B6D8D;
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-.brand {
-  display: flex;
-  background: #96ceb4;
-  padding: 5px 10px;
-}
-
-.brand h1 {
-  display: inline-block;
-  background: #DB9964;
-  padding: 10px;
-  border-radius: 30px;
-  font-size: 14px;
-}
-
-.brand h2 {
-  font-size: 12px;
-  padding: 10px;
-  margin-top: 12px;
+  color: #ffffff;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .main {
-  padding: 20px 100px;
+  padding: 20px 60px;
+}
+
+input {
+  color: #000000;
 }
 
 .pure-button {
@@ -66,7 +48,6 @@ h2 {
 .space-right {
   margin-right: 10px;
 }
-
 
 #footer {
   display: flex;

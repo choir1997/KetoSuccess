@@ -20,7 +20,11 @@
       </fieldset>
       <p v-if="error" class="error">{{error}}</p>
       <fieldset>
-        <button type="submit" class="button" style="vertical-align:middle" @click.prevent="register"><span>Sign-up <i class="fas fa-user-plus"></i></span></button>
+      <div class="container-3">
+        <div class="btn btn-three" @click.prevent="register">
+          <span>Sign-up</span>
+        </div>
+      </div>
       </fieldset>
 
     </form>
@@ -35,7 +39,11 @@
         <input type="password" placeholder="Enter password" v-model="passwordLogin">
       </fieldset>
       <fieldset>
-        <button type="submit" class="button" style="vertical-align:middle" @click.prevent="login"><span>Login <i class="fas fa-sign-in-alt"></i></span></button>
+      <div class="container-3">
+        <div class="btn btn-three" @click.prevent="login">
+          <span>Login</span>
+        </div>
+      </div>
       </fieldset>
       <p v-if="errorLogin" class="error">{{errorLogin}}</p>
     </form>
@@ -144,8 +152,6 @@ h2 {
   justify-content: center;
 }
 
-
-
 h1 {
   font-size: 28px;
   font-variant: capitalize;
@@ -168,10 +174,8 @@ h1 {
   margin-top: 50px;
 }
 
-
 .main form {
   font-size: 20px;
-
 }
 
 input {
@@ -189,45 +193,6 @@ input {
   margin-top: 50px;
 }
 
-.button {
-  display: inline-block;
-  border-radius: 2px;
-  background-color: #8FBC8F;
-  color: #000000;
-  text-align: center;
-  font-size: 17px;
-  padding: 10px;
-  width: 250px;
-  height: 40px;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
 .buttons {
   display: flex;
   justify-content: center;
@@ -238,11 +203,67 @@ input {
   font-size: 20px;
 }
 
+div[class*=container] {
+  text-align: center;
+  width: 100%;
+  height: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn {
+  position: relative;
+  color: white;
+  width: 175px;
+  height: 34px;
+  transition: all 0.3s;
+  text-decoration: none !important;
+  font-size: 20px;
+  span {
+    transition: all 0.3s;
+    tranform: scale(1, 1);
+  }
+}
+
+.btn::before, .btn::after {
+  content: '';
+  position: absolute;
+  transition: all 0.3s;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.btn-three::before {
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1, 0.1);
+}
+
+.btn-three:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.btn-three::after {
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-three:hover::after {
+  transform: scale(1, .1);
+  opacity: 0;
+}
+
 @media only screen and (min-width: 300px) and (max-width: 960px) {
   .formBox {
     width: 20%;
     flex-wrap: wrap;
   }
-
 }
 </style>
