@@ -2,12 +2,8 @@
 <div id="app">
   <div class="content">
     <router-view />
-    <div id='footer'>
-    <div class='footer-item'>
-    <a href="https://github.com/choir1997/KetoSuccess">GitHub Repository</a>
-    </div>
   </div>
-  </div>
+  
 </div>
 </template>
 
@@ -55,6 +51,7 @@ h2 {
 #footer {
   display: flex;
   position: relative;
+  border: 2px solid;
   min-height: 70vh;
   justify-content: flex-start;
   padding: 0px !important;
@@ -85,6 +82,7 @@ h2 {
 
   #footer {
     justify-content: center;
+
   }
   .footer-item {
     width: auto;

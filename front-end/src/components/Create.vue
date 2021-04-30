@@ -315,7 +315,7 @@ div[class*=container] {
   }
   .pure-form input {
     height: 30px;
-    margin: 5px;
+    margin: 0 auto;
     width: 200px;
   }
 }

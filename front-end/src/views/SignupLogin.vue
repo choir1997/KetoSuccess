@@ -3,7 +3,7 @@
 <Create v-if="user"/>
 <div class="main" v-else>
   <div class="formBox">
-    <form class="pure-form" @submit.prevent>
+    <form class="pure-form">
       <fieldset>
         <p>Sign-up now to start planning!</p>
         <input placeholder="Enter first name" v-model="firstName">
@@ -33,7 +33,7 @@
     <form class="pure-form">
       <fieldset>
         <p>Already have an account? Login!</p>
-        <input placeholder="Enter username" v-model="usernameLogin">
+        <input type="text" placeholder="Enter username" v-model="usernameLogin">
         </fieldset>
         <fieldset>
         <input type="password" placeholder="Enter password" v-model="passwordLogin">
