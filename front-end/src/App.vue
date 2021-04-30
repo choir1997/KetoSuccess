@@ -4,7 +4,7 @@
     <router-view />
     <div id='footer'>
     <div class='footer-item'>
-    <a href="https://github.com/choir1997/KetoSuccess">GitHub Repository and spent 25 hours on project</a>
+    <a href="https://github.com/choir1997/KetoSuccess">GitHub Repository</a>
     </div>
   </div>
   </div>
@@ -18,11 +18,14 @@
 body {
   margin: 0px;
   background: #7B6D8D;
+  width: auto;
+  height: auto;
 }
 
 #app {
   color: #ffffff;
   font-family: 'Open Sans Condensed', sans-serif;
+  padding: 10px;
 }
 
 .main {
@@ -61,7 +64,7 @@ h2 {
 .footer-item {
   position: absolute;
   bottom: 0;
-  background-color: #8FBC8F;
+  background-color: #7B6D8D;
   color: #FFFFF;
   background-size: cover;
   height: 20px;
@@ -76,6 +79,18 @@ h2 {
 }
 
 @media only screen and (min-width: 300px) and (max-width: 960px) {
+  body {
+    width: auto;
+  }
+
+  #footer {
+    justify-content: center;
+  }
+  .footer-item {
+    width: auto;
+    text-align: center;
+    margin-left: 0px;
+  }
 
 }
 </style>

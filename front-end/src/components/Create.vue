@@ -27,21 +27,26 @@
       <p>Nutrition Facts(Calories, Fat, Protein, Carbs):</p>
       <textarea v-model="nutrition"></textarea>
       <br />
+      <div class="cancelAdd">
       <div class="container-3">
         <div class="btn btn-three" @click="cancelCreating">
           <span>Cancel </span>
         </div>
       </div>
-      <div class="container-3">
-        <div class="btn btn-three" @click="addTicket">
-          <span>Add Plan! </span>
+      <div class="add">
+        <div class="container-3">
+          <div class="btn btn-three" @click="addTicket">
+            <span>Add Plan! </span>
+          </div>
         </div>
+      </div>
       </div>
     </fieldset>
   </form>
 
   <div class="meal" v-else>
         <div v-for="ticket in tickets" v-bind:key="ticket.id">
+          <div class="oneMeal">
           <div class="container-3">
             <div class="btn btn-three" @click="isEditing(ticket)">
               <span>Edit </span>
@@ -49,7 +54,7 @@
           </div>
           <div class="editing" v-if="matchTicket(ticket)" @submit.prevent="editTicket(ticket)">
           <form class="pure-form">
-            <input placeholder="edit name" mealName = "ticket.mealName"  v-model="ticket.editMealName">
+            <input placeholder="edit name" mealName = "ticket.mealName" v-model="ticket.editMealName" >
             <br/>
             <input placeholder="edit time" mealTime = "ticket.mealTime" v-model="ticket.editMealTime">
             <br/>
@@ -60,6 +65,8 @@
                 <span>Save </span>
               </div>
             </div>
+            <br/>
+            <br/>
           </form>
           </div>
           <div class="notEditing" v-else>
@@ -72,6 +79,7 @@
             <div class="btn btn-three" @click="deleteTicket(ticket)">
               <span>Delete </span>
             </div>
+          </div>
           </div>
         </div>
   </div>
@@ -96,11 +104,11 @@ export default {
       tickets: [],
     }
   },
-
-  methods: {
   created() {
    this.getTickets();
    },
+  methods: {
+
    cancelEdit() {
       this.editing = false;
    },
@@ -182,9 +190,7 @@ computed: {
   user() {
     return this.$root.$data.user;
   },
-
 },
-
 }
 </script>
 
@@ -194,7 +200,6 @@ computed: {
   text-align: center;
   height: auto;
 }
-
 .meal {
   display: flex;
   justify-content: flex-start;
@@ -208,72 +213,36 @@ computed: {
   margin: 5px;
   width: 200px;
 }
-
 .pure-form textarea {
   margin: 5px;
 }
-
 .editing {
   display: flex;
+  padding-top: 10px;
 }
 
 textarea {
   width: 200px;
   max-width: 500px;
+  color: #000000;
 }
-
+.cancelAdd {
+  padding: 20px;
+}
+.add {
+  margin-top: 20px;
+}
 h1 {
   font-size: 20px;
   text-align: center;
 }
-
 h2 {
   font-size: 30px;
   text-align: center;
 }
 
-button {
-  display: inline-block;
-  border-radius: 2px;
-  background-color: #8FBC8F;
-  color: #000000;
-  text-align: center;
-  font-size: 15px;
-  padding: 10px;
-  width: 150px;
-  height: 40px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 10px;
-}
-
-button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.2s;
-}
-
-button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.2s;
-}
-
-button:hover span {
-  padding-right: 15px;
-}
-
-button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-button:hover {
-  background-color: #568f56;
+.oneMeal {
+  padding-right: 20px;
 }
 
 div[class*=container] {
@@ -286,7 +255,6 @@ div[class*=container] {
   text-decoration: none;
   cursor: pointer;
 }
-
 .btn {
   position: relative;
   color: white;
@@ -300,7 +268,6 @@ div[class*=container] {
     tranform: scale(1, 1);
   }
 }
-
 .btn::before, .btn::after {
   content: '';
   position: absolute;
@@ -311,52 +278,45 @@ div[class*=container] {
   height: 100%;
   z-index: 1;
 }
-
 .btn-three::before {
   opacity: 0;
   background: rgba(255, 255, 255, 0.1);
   transform: scale(1, 0.1);
 }
-
 .btn-three:hover::before {
   opacity: 1;
   transform: scale(1, 1);
 }
-
 .btn-three::after {
   transition: all 0.3s;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
-
 .btn-three:hover::after {
   transform: scale(1, .1);
   opacity: 0;
 }
-
 @media only screen and (min-width: 300px) and (max-width: 960px) {
   .loginPage {
-    width: 360px;
+    width: auto;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
   }
+  .oneMeal {
+    padding: 10px;
+  }
   .meal {
-    display: flex;
-    width: 360px;
+    display: initial;
+    width: 100%;
     flex-wrap: wrap !important;
   }
-
   .pure-form {
-    text-align: center;
+    margin: 0 auto;
   }
-
   .pure-form input {
     height: 30px;
     margin: 5px;
     width: 200px;
-    margin-left: 60px;
   }
-
 }
-
 </style>

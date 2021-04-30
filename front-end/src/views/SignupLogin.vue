@@ -160,7 +160,7 @@ h1 {
 .main {
   display: flex;
   height: 600px;
-  text-align: left;
+  text-align: center;
   justify-content: center;
 }
 
@@ -183,7 +183,7 @@ input {
 }
 
 .error {
-  color: #DC143C;
+  color: #000000;
   margin-bottom: -10px;
   margin-top: -1px;
 
@@ -222,6 +222,7 @@ div[class*=container] {
   transition: all 0.3s;
   text-decoration: none !important;
   font-size: 20px;
+  margin-right: 8px;
   span {
     transition: all 0.3s;
     tranform: scale(1, 1);
@@ -261,6 +262,9 @@ div[class*=container] {
 }
 
 @media only screen and (min-width: 300px) and (max-width: 960px) {
+  .main {
+    margin-left: -100px;
+  }
   .formBox {
     width: 20%;
     flex-wrap: wrap;
